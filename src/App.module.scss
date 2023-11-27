@@ -5,3 +5,9 @@
   grid-template-rows: 1fr auto;
   place-items: center;
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

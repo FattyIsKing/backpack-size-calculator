@@ -1,9 +1,16 @@
-import styles from "./App.module.css";
+import styles from "./App.module.scss";
 import Form from "./components/Form/Form";
+import Result from "./components/Result/Result";
+import { useState } from "react";
 function App() {
+  const [result, setResult] = useState(0);
+
   return (
     <div className={styles.wrapper}>
-      <Form />
+      <div className={styles.main}>
+        <Form setResult={setResult} />
+        {result !== 0 && <Result result={result} />}
+      </div>
     </div>
   );
 }
