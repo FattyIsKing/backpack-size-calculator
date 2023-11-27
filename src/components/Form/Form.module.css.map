@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,KAAK,EAAE,GAAG;EACV,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,KAAK;EACjB,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;EACvB,cAAc,EAAE,MAAM;EACtB,OAAO,EAAE,SAAS;EAClB,MAAM,EAAE,eAAe;EACvB,GAAG,EAAE,IAAI;CACV;;AAED,AAAA,OAAO,CAAC;EACN,OAAO,EAAE,IAAI;EACb,GAAG,EAAE,IAAI;CACV",
-    "sources": [
-        "Form.module.scss"
-    ],
-    "names": [],
-    "file": "Form.module.css"
-}

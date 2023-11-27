@@ -6,6 +6,11 @@ const Form = ({ setResult }) => {
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
   const [length, setLength] = useState("");
+  const [errors, setErrors] = useState({
+    width: false,
+    height: false,
+    length: false,
+  });
 
   const reset = () => {
     setWidth("");
@@ -15,22 +20,61 @@ const Form = ({ setResult }) => {
   };
 
   const calculate = () => {
-    if (width === "" || height === "" || length === "") {
-      alert("Wszystkie pola muszą być wypełnione");
-      setResult(0);
-    } else {
+    setErrors({
+      width: false,
+      height: false,
+      length: false,
+    });
+
+    if (width === "") {
+      setErrors((errors) => ({ ...errors, width: true }));
+    }
+    if (height === "") {
+      setErrors((errors) => ({ ...errors, height: true }));
+    }
+    if (length === "") {
+      setErrors((errors) => ({ ...errors, length: true }));
+    }
+    if (width !== "" && height !== "" && length !== "") {
       setResult((parseFloat(width) * parseFloat(height) * parseFloat(length)) / 1000);
     }
   };
   return (
     <div className={styles.wrapper}>
-      <h1>Kalkulator pojemności plecaka</h1>
-      <FormField name="width" content="Szerokość plecaka (cm)" value={width} onChange={(e) => setWidth(e.target.value)} />
-      <FormField name="height" content="Wysokość plecaka (cm)" value={height} onChange={(e) => setHeight(e.target.value)} />
-      <FormField name="length" content="Długość plecaka (cm)" value={length} onChange={(e) => setLength(e.target.value)} />
-      <div className={styles.holder}>
-        <Button name="Oblicz" onClick={calculate} />
-        <Button name="Resetuj" onClick={reset} />
+      <div className={styles.title}>
+        <h1>Kalkulator pojemności plecaka</h1>
+      </div>
+      <div className={styles.main}>
+        <div className={styles.formFields}>
+          <FormField
+            name="width"
+            content="Szerokość (cm)"
+            placeholder="Szerokość plecaka"
+            value={width}
+            onChange={(e) => setWidth(e.target.value)}
+          />
+          {errors.width && <p className={styles.error}>Podaj szerokość plecaka!</p>}
+          <FormField
+            name="height"
+            content="Wysokość (cm)"
+            placeholder="Wysokość plecaka"
+            value={height}
+            onChange={(e) => setHeight(e.target.value)}
+          />
+          {errors.height && <p className={styles.error}>Podaj wysokość plecaka!</p>}
+          <FormField
+            name="length"
+            content="Długość (cm)"
+            placeholder="Długość plecaka"
+            value={length}
+            onChange={(e) => setLength(e.target.value)}
+          />
+          {errors.length && <p className={styles.error}>Podaj długość plecaka!</p>}
+        </div>
+        <div className={styles.holder}>
+          <Button name="Oblicz pojemność" onClick={calculate} />
+          <Button name="Resetuj" onClick={reset} isGhost />
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./FormField.module.scss";
-const FormField = ({ name, content, value, onChange }) => {
+const FormField = ({ name, content, placeholder, value, onChange }) => {
   return (
     <div className={styles.wrapper}>
       <label htmlFor={name}>{content}</label>
-      <input type="number" name={name} value={value} onChange={onChange} />
+      <input type="number" name={name} value={value} placeholder={placeholder} onChange={onChange} />
     </div>
   );
 };
