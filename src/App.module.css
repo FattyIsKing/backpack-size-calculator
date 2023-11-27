@@ -3,4 +3,5 @@
   width: 100%;
   display: grid;
   grid-template-rows: 1fr auto;
+  place-items: center;
 }
