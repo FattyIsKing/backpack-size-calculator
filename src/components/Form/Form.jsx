@@ -52,24 +52,25 @@ const Form = ({ setResult }) => {
             placeholder="Szerokość plecaka"
             value={width}
             onChange={(e) => setWidth(e.target.value)}
+            error={errors.width}
           />
-          {errors.width && <p className={styles.error}>Podaj szerokość plecaka!</p>}
           <FormField
             name="height"
             content="Wysokość (cm)"
             placeholder="Wysokość plecaka"
             value={height}
             onChange={(e) => setHeight(e.target.value)}
+            error={errors.height}
           />
-          {errors.height && <p className={styles.error}>Podaj wysokość plecaka!</p>}
+
           <FormField
             name="length"
             content="Długość (cm)"
             placeholder="Długość plecaka"
             value={length}
             onChange={(e) => setLength(e.target.value)}
+            error={errors.length}
           />
-          {errors.length && <p className={styles.error}>Podaj długość plecaka!</p>}
         </div>
         <div className={styles.holder}>
           <Button name="Oblicz pojemność" onClick={calculate} />
