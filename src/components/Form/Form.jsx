@@ -2,15 +2,10 @@ import React, { useState } from "react";
 import styles from "./Form.module.scss";
 import FormField from "../FormField/FormField";
 import Button from "../Button/Button";
-const Form = ({ setResult }) => {
+const Form = ({ setResult, setErrors, errors }) => {
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
   const [length, setLength] = useState("");
-  const [errors, setErrors] = useState({
-    width: false,
-    height: false,
-    length: false,
-  });
 
   const reset = () => {
     setWidth("");
@@ -51,7 +46,10 @@ const Form = ({ setResult }) => {
             content="Szerokość (cm)"
             placeholder="Szerokość plecaka"
             value={width}
-            onChange={(e) => setWidth(e.target.value)}
+            onChange={(e) => {
+              setErrors({ ...errors, width: false });
+              setWidth(e.target.value);
+            }}
             error={errors.width}
           />
           <FormField
@@ -59,7 +57,10 @@ const Form = ({ setResult }) => {
             content="Wysokość (cm)"
             placeholder="Wysokość plecaka"
             value={height}
-            onChange={(e) => setHeight(e.target.value)}
+            onChange={(e) => {
+              setErrors({ ...errors, height: false });
+              setHeight(e.target.value);
+            }}
             error={errors.height}
           />
 
@@ -68,7 +69,10 @@ const Form = ({ setResult }) => {
             content="Długość (cm)"
             placeholder="Długość plecaka"
             value={length}
-            onChange={(e) => setLength(e.target.value)}
+            onChange={(e) => {
+              setErrors({ ...errors, length: false });
+              setLength(e.target.value);
+            }}
             error={errors.length}
           />
         </div>
