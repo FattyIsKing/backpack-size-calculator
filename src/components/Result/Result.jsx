@@ -16,9 +16,13 @@ const Result = ({ result }) => {
       setResultFormat(`${result.toFixed(2)} litrów`);
     }
   };
-  useEffect(() => {
-    resultInit();
-  }, [result]);
+  useEffect(
+    () => {
+      resultInit();
+    },
+    [result],
+    resultInit
+  );
   return (
     <div className={styles.wrapper}>
       <p>Pojemność twojego plecaka wynosi</p>

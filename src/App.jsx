@@ -1,6 +1,7 @@
 import styles from "./App.module.scss";
 import Form from "./components/Form/Form";
 import Result from "./components/Result/Result";
+import Footer from "./components/Footer/Footer";
 import { useState } from "react";
 function App() {
   const [result, setResult] = useState(0);
@@ -16,6 +17,7 @@ function App() {
         <Form setResult={setResult} setErrors={setErrors} errors={errors} />
         {result !== 0 && <Result result={result} />}
       </div>
+      <Footer />
     </div>
   );
 }

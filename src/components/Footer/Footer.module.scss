@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  p {
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .wrapper {
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .wrapper {
+    p {
+      font-size: 10px;
+    }
+  }
+}
