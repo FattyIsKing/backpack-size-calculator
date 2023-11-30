@@ -1,6 +1,6 @@
 .wrapper {
   width: 70%;
-  min-width: 350px;
+  min-width: 270px;
   min-height: 650px;
   display: flex;
   align-items: center;
@@ -59,4 +59,18 @@
 .error {
   font-size: 14px;
   font-weight: 500;
+}
+
+@media screen and (max-width: 630px) {
+  .holder {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .title {
+    h1 {
+      font-size: 22px;
+    }
+  }
 }
