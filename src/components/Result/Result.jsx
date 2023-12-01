@@ -3,7 +3,7 @@ import styles from "./Result.module.scss";
 
 const Result = ({ result }) => {
   const [resultFormat, setResultFormat] = useState("");
-  const resultInit = () => {
+  useEffect(() => {
     if (result === 1) {
       setResultFormat(`${result} litr`);
     } else if (!Number.isInteger(result)) {
@@ -15,14 +15,7 @@ const Result = ({ result }) => {
     } else {
       setResultFormat(`${result.toFixed(2)} litrów`);
     }
-  };
-  useEffect(
-    () => {
-      resultInit();
-    },
-    [result],
-    resultInit
-  );
+  }, [result, resultFormat, setResultFormat]);
   return (
     <div className={styles.wrapper}>
       <p>Pojemność twojego plecaka wynosi</p>
