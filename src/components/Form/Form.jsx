@@ -12,6 +12,11 @@ const Form = ({ setResult, setErrors, errors }) => {
     setHeight("");
     setLength("");
     setResult(0);
+    setErrors({
+      width: false,
+      height: false,
+      length: false,
+    });
   };
 
   const calculate = () => {
